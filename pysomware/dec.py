@@ -1,3 +1,4 @@
+import base64
 from Crypto.Cipher import AES
 
 
@@ -15,8 +16,8 @@ def decrypt(path):
 
 	path = path.replace('.crypt', '')
 
-	file_out = open(path, 'wb')
+	file_out = open(path, mode='wb')
 
-	file_out.write(data)
+	file_out.write(base64.b64decode(data))
 
 	file_out.close()
